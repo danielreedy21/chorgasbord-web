@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-// import { UserAuth } from "../context/AuthContext";
+import {SignInButton, SignOutButton} from "../components/AuthButtons";
+import AuthCheck from "../components/AuthCheck";
 
 const Navbar = () => {
     return (
@@ -10,6 +11,8 @@ const Navbar = () => {
                 <li><Link href={'/explore'}> Explore </Link></li>
                 <li><Link href={'/board'}> My Board </Link></li>
                 <li><Link href={'/about'}> About </Link></li>
+                <li><SignInButton/></li>
+                <li><AuthCheck><SignOutButton/></AuthCheck></li>
             </ul>
         </nav>
     )

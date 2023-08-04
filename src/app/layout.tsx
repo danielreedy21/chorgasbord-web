@@ -2,6 +2,7 @@ import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import Navbar from '../components/Navbar'
+import AuthProvider from './AuthProvider'
 // import { AuthContextProvider } from "./context/AuthContext";
 
 
@@ -18,13 +19,15 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>
-        {/* <AuthContextProvider> */}
-          <Navbar></Navbar>
-          {children}
-        {/* </AuthContextProvider> */}
-      </body>
-    </html>
+    <AuthProvider>
+      <html lang="en">
+        <body className={inter.className}>
+          {/* <AuthContextProvider> */}
+            <Navbar></Navbar>
+            {children}
+          {/* </AuthContextProvider> */}
+        </body>
+      </html>
+    </AuthProvider>
   )
 }
