@@ -1,5 +1,5 @@
 import { prisma } from "../../lib/prisma"
-
+import UserCard from '../../components/UserCard'
 
 export default async function Users() {
 
@@ -8,16 +8,17 @@ export default async function Users() {
 
 
     return(
-        <div className="grid">
+        <main className="mt-12 grid">
             {users.map((user) => {
                 return (
-                    <div>
-                        <h1>{user.name}</h1>
-                        <p>{user.age}</p>
-                        <p>{user.email}</p>
-                    </div>
+                    <UserCard key={user.id} {...user}></UserCard>
+                    // <div>
+                    //     <h1>{user.name}</h1>
+                    //     <p>{user.age}</p>
+                    //     <p>{user.email}</p>
+                    // </div>
                 );
             })}
-        </div>
+        </main>
     );
 }

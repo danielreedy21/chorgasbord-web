@@ -2,18 +2,25 @@
 
 import { signIn, signOut, useSession } from "next-auth/react";
 import Link from "next/link";
+import Spinner from '../components/Spinner';
 
 export function SignInButton() {
     const { data: session, status} = useSession();
     console.log(session, status);
     if (status === 'loading') {
-        return <>...</>
+        return <Spinner></Spinner>
     }
 
     if (status === 'authenticated') {
         if (session) {
             return (
-                <>{session.user?.name} Signed In!</>
+                // <>{session.user?.name} Signed In!</>
+                <div className="relative w-10 h-10">
+                    <img 
+                    src={session.user?.image} 
+                    alt="profile pic"
+                    className="rounded-full border border-gray-400 shadow-sm"/>
+                </div>
             );
         } else {
             return <>...</>
