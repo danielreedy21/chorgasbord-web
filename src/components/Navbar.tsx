@@ -5,8 +5,8 @@ import AuthCheck from "../components/AuthCheck";
 
 const Navbar = () => {
     return (
-        <nav className="bg-black fixed top-0 w-full flex items-center justify-between h-12">
-            <Link href={'/'}>Chorgasbord</Link>
+        <nav className="bg-black fixed top-0 w-full flex items-center justify-between h-12 border-b-2 border-white">
+            <Link className="text-3xl" href={'/'}>Chorgasbord</Link>
             <ul className="flex space-x-4">
                 <li><Link href={'/users'}> Users </Link></li>
                 <li><Link href={'/myboard'}> My Board </Link></li>

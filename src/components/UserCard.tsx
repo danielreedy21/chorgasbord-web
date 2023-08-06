@@ -11,16 +11,17 @@ export default function UserCard({id, name, age, image}: Props) {
     const idLink = 'users/' + id
     const altMesg = name + "'s profile"
     return (
-        <div>
-            <img 
-                src={image ?? '/profile-icon'} 
-                alt={altMesg}
-            />
-            <div>
-                <h3>
-                    <Link href={idLink}>{name}</Link>
-                </h3>
+        <div> 
+            <div className="relative w-16 h-16">
+                <img 
+                    src={image ?? '/profile-icon'} 
+                    alt={altMesg}
+                    className="rounded-full border border-gray-400 shadow-sm"
+                />
             </div>
+            <h3>
+                <Link href={idLink}>{name}</Link>
+            </h3>
         </div>
     );
 }

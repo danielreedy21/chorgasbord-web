@@ -8,15 +8,10 @@ export default async function Users() {
 
 
     return(
-        <main className="mt-12 grid">
+        <main className="mt-16 grid grid-flow-col grid-cols-4 place-items-center">
             {users.map((user) => {
                 return (
                     <UserCard key={user.id} {...user}></UserCard>
-                    // <div>
-                    //     <h1>{user.name}</h1>
-                    //     <p>{user.age}</p>
-                    //     <p>{user.email}</p>
-                    // </div>
                 );
             })}
         </main>
