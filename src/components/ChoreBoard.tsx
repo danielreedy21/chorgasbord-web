@@ -1,5 +1,6 @@
 import ChoreSquare from './ChoreSquare'
 import AddChoreSquare from './AddChoreSquare'
+import AuthCheck from './AuthCheck'
 
 interface Props {
     user: string;
@@ -16,7 +17,9 @@ export default function ChoreBoard({user}:Props) {
             <ChoreSquare></ChoreSquare>
             <ChoreSquare></ChoreSquare>
             <ChoreSquare></ChoreSquare>
-            <AddChoreSquare/>
+            {/* <AuthCheck> */}
+                <AddChoreSquare/>
+            {/* </AuthCheck> */}
         </div>
     );
 }
