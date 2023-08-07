@@ -12,6 +12,22 @@ datasource db {
 }
 
 
+// Table for individual chores/tasks
+model Chore {
+  userId            String
+  title             String
+  description       String
+  created_at        String
+  updated_at        String
+  frequency         Int
+  public            Boolean
+  @@unique([userId, title])
+}
+
+
+
+
+
 
 // NextAuth Schema
 

@@ -17,14 +17,17 @@ export default async function UserProfile({ params }: Props) {
     const { name, bio, image, id } = user ?? {};
 
     return (
-        <main className="mt-16">
-            <h1>{name}</h1>
+        <main className="mt-16 grid grid-flow-row place-content-center">
+            <h1 className="text-3xl">{name}</h1>
   
-            <img
-                width={300}
-                src={image ?? '/profile-icon.jpeg'}
-                alt={`${name}'s profile`}
-            />
+            <div className="relative w-24 h-24">
+                <img
+                    width={300}
+                    src={image ?? '/profile-icon.jpeg'}
+                    alt={`${name}'s profile`}
+                    className="rounded-full border border-gray-400 shadow-sm"
+                />
+            </div>
   
             <h3>Bio</h3>
             <p>{bio}</p>
