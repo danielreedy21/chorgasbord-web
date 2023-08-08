@@ -32,9 +32,20 @@ export async function POST(request: Request) {
 
 
 
-export async function GET(request: Request) {
-    const session = await getServerSession(authOptions)
-    const userId = session?.user.id
-    
-    const data = await request.json()
-}
+// export async function GET(request: Request) {
+//     const session = await getServerSession(authOptions)
+//     const data = await request.json()
+
+
+
+
+//     // if all flag is set to false
+//     const userId = data.userID
+
+//     const chores = await prisma.chore.findMany({
+//         where: {
+//             userId: userId,
+//         }
+//     })
+//     return NextResponse.json(chores)
+// }

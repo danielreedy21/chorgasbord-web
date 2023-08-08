@@ -6,7 +6,7 @@ import Spinner from '../components/Spinner';
 
 export function SignInButton() {
     const { data: session, status} = useSession();
-    console.log(session, status);
+    // console.log(session, status);
     if (status === 'loading') {
         return <Spinner></Spinner>
     }
