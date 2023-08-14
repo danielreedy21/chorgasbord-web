@@ -4,10 +4,30 @@ import { prisma } from '../../../lib/prisma'
 import { authOptions } from '../auth/[...nextauth]/route'
 
 
+
+
+export async function GET(req: NextRequest) {
+    const session = await getServerSession(authOptions)
+    const userId = session?.user.id
+    const targetUserId = req.nextUrl.searchParams.get('targetUserId')
+
+    // TODO: add correct error here
+    if (!userId || !targetUserId){
+        return
+    }
+
+    const isFollowing = await prisma.follows.findFirst({
+        where: { followerId: userId, followingId: targetUserId },
+    });
+    
+    return NextResponse.json(!!isFollowing)
+}
+
+
 export async function POST(req: Request) {
     const session = await getServerSession(authOptions)
     const userId = session?.user.id
-    const targetUserId = await req.json();
+    const {targetUserId} = await req.json();
     // TODO: add correct error here
     if (!userId) {
         return

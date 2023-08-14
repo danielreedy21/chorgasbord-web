@@ -17,7 +17,7 @@ export function SignInButton() {
                 // <>{session.user?.name} Signed In!</>
                 <div className="relative w-10 h-10">
                     <img 
-                    src={session.user?.image ?? "/profile-icon.jpeg"} 
+                    src={session.user?.image ?? "../../public/profile-icon.jpeg"} 
                     alt={session.user?.name ?? "profile name"}
                     className="rounded-full border border-gray-400 shadow-sm"/>
                 </div>

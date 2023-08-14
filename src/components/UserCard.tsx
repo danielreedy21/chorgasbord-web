@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import FollowButtonClient from '../components/FollowButtonClient'
 
 interface Props {
     id: string;
@@ -22,6 +23,7 @@ export default function UserCard({id, name, age, image}: Props) {
             <h3>
                 <Link href={idLink}>{name}</Link>
             </h3>
+            {/* <FollowButton targetUserId={id}></FollowButton> */}
         </div>
     );
 }

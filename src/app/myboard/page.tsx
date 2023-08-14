@@ -6,6 +6,7 @@ import { authOptions } from '../api/auth/[...nextauth]/route'
 import { GetServerSideProps } from 'next'
 import { prisma } from '../../lib/prisma'
 import AddChoreSquare from '../../components/AddChoreSquare'
+import ChoreSquare from '../../components/ChoreSquare'
 
 
 export const metadata: Metadata = {
@@ -26,7 +27,7 @@ export default async function MyBoard() {
             </main>
         )
     }
-    if (!session.user.id || session.user.id == 'undefined') {
+    if (!userId || userId == 'undefined') {
         return (
             <main className="mt-16">
                 <h3>Issue with account.</h3>
@@ -47,7 +48,16 @@ export default async function MyBoard() {
                 <p>User: {userId}</p>
                 <p>Chores: {JSON.stringify(chores)}</p>
                 <p>Length: {chores.length}</p>
-                <AddChoreSquare></AddChoreSquare>
+                <div className="mx-auto w-256">
+                    <div className="grid grid-cols-4 place-content-center gap-6">
+                        {chores.map((chore) => {
+                            return (
+                                <ChoreSquare></ChoreSquare>
+                            );
+                        })}
+                        <AddChoreSquare></AddChoreSquare>
+                    </div>
+                </div>
                 {/* <ChoreBoard user={session?.user.id}></ChoreBoard> */}
                 {/* <ChoreBoard user="placehold user"></ChoreBoard> */}
             </main>
