@@ -7,6 +7,7 @@ import { GetServerSideProps } from 'next'
 import { prisma } from '../../lib/prisma'
 import AddChoreSquare from '../../components/AddChoreSquare'
 import ChoreSquare from '../../components/ChoreSquare'
+import Modal from '../../components/AddChoreModal'
 
 
 export const metadata: Metadata = {
@@ -46,16 +47,23 @@ export default async function MyBoard() {
             <main className="pt-16"> 
                 <h3>My Board</h3>
                 <p>User: {userId}</p>
-                <p>Chores: {JSON.stringify(chores)}</p>
+                {/* <p>Chores: {JSON.stringify(chores)}</p> */}
                 <p>Length: {chores.length}</p>
                 <div className="mx-auto w-256">
                     <div className="grid grid-cols-4 place-content-center gap-6">
                         {chores.map((chore) => {
                             return (
-                                <ChoreSquare></ChoreSquare>
+                                <ChoreSquare 
+                                    title={chore.title} 
+                                    description={chore.description} 
+                                    createdAt={chore.created_at}
+                                    updatedAt={chore.updated_at}
+                                    frequency={chore.frequency}
+                                ></ChoreSquare>
                             );
                         })}
-                        <AddChoreSquare></AddChoreSquare>
+                        {/* <AddChoreSquare></AddChoreSquare> */}
+                        <Modal></Modal>
                     </div>
                 </div>
                 {/* <ChoreBoard user={session?.user.id}></ChoreBoard> */}
