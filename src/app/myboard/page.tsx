@@ -9,6 +9,8 @@ import AddChoreSquare from '../../components/AddChoreSquare'
 import ChoreSquare from '../../components/ChoreSquare'
 import Modal from '../../components/AddChoreModal'
 
+export const dynamic = 'force-dynamic';
+export const revalidate = 10;
 
 export const metadata: Metadata = {
     title: 'My Chorgasbord',

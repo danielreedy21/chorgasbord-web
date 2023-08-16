@@ -116,7 +116,7 @@ export default function AddChoreModal() {
                       <label className="block text-black text-sm mb-1">
                         Public or Private?
                       </label>
-                      <select name="isPublic" id="isPublic">
+                      <select className="text-black" name="isPublic" id="isPublic">
                           <option value="private">Private</option>
                           <option value="public">Public</option>
                       </select>

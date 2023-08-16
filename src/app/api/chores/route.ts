@@ -1,5 +1,5 @@
 import { prisma } from '../../../lib/prisma'
-import { NextResponse } from 'next/server'
+import { NextResponse, NextRequest } from 'next/server'
 import { getServerSession } from 'next-auth'
 import { authOptions } from "../auth/[...nextauth]/route"
 
@@ -31,6 +31,27 @@ export async function POST(request: Request) {
 }
 
 
+export async function DELETE(req: NextRequest) {
+    const session = await getServerSession(authOptions)
+    const userId = session?.user.id
+    const title = req.nextUrl.searchParams.get('title')
+
+    if (!userId || !title) {
+        console.log("user has no ID or request has no title param");
+        return
+    }
+
+    const record = await prisma.chore.delete({
+        where: {
+            userId_title: {
+                userId: userId,
+                title: title,
+            }
+        }
+    });
+
+    return NextResponse.json(record)
+}
 
 // export async function GET(request: Request) {
 //     const session = await getServerSession(authOptions)

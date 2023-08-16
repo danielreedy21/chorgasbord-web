@@ -1,3 +1,4 @@
+import DeleteChore from '../components/DeleteChore'
 
 interface Props {
     title: string;
@@ -22,6 +23,7 @@ export default function ChoreSquare( props: Props) {
             <p>{createdAt}</p>
             <p>{updatedAt}</p>
             <p>{frequency}</p>
+            <DeleteChore title={title}></DeleteChore>
         </div>
     );
 }
