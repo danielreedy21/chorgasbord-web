@@ -11,8 +11,8 @@ import Modal from '../../components/AddChoreModal'
 
 
 export const metadata: Metadata = {
-    title: 'My Board',
-    description: 'Your Personal Chorgusbord',
+    title: 'My Chorgasbord',
+    description: 'Your Personal Chorgasbord',
 }
 
 export default async function MyBoard() {
@@ -20,7 +20,6 @@ export default async function MyBoard() {
     // const { data: session, status} = useSession();
     const session = await getServerSession(authOptions)
     const userId = session?.user.id
-    // console.log(session?.user.id)
     if (!session) {
         return (
             <main className="mt-16">
@@ -45,12 +44,12 @@ export default async function MyBoard() {
 
         return (
             <main className="pt-16"> 
-                <h3>My Board</h3>
+                <h3 className="text-2xl ml-56">My Personal Chorgasbord</h3>
                 <p>User: {userId}</p>
                 {/* <p>Chores: {JSON.stringify(chores)}</p> */}
                 <p>Length: {chores.length}</p>
                 <div className="mx-auto w-256">
-                    <div className="grid grid-cols-4 place-content-center gap-6">
+                    <div className="grid grid-cols-3 place-content-center gap-6">
                         {chores.map((chore) => {
                             return (
                                 <ChoreSquare 

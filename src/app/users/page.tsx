@@ -8,12 +8,15 @@ export default async function Users() {
 
 
     return(
-        <main className="mt-16 grid grid-flow-col grid-cols-4 place-items-center">
-            {users.map((user) => {
-                return (
-                    <UserCard key={user.id} {...user}></UserCard>
-                );
-            })}
+        <main className="mt-16">
+            <h1 className="text-3xl">Users</h1>
+            <div className="grid grid-flow-col grid-cols-4 place-items-center">
+                {users.map((user) => {
+                    return (
+                        <UserCard key={user.id} {...user}></UserCard>
+                    );
+                })}
+            </div>
         </main>
     );
 }

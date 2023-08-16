@@ -1,34 +1,78 @@
 'use client'
 import { useState } from 'react'
 
+
+interface Chore {
+    title: string;
+    description: string;
+    created_at: Date;
+    updated_at: Date;
+    frequency: number;
+    public: Boolean;
+}
+
+
 export default function AddChoreModal() {
 
+    const [showModal, setShowModal] = useState(false);
 
     const createChore = async (e: React.FormEvent<HTMLFormElement>) => {
+
         e.preventDefault();
         const currDateTime = new Date()
         const formData = new FormData(e.currentTarget);
-        const body = {
-            title: formData.get(title),
-            description: formData.get(description),
+
+
+        // TODO: perform form data validation here
+        const title = formData.get('title');
+        if (typeof title != "string") {
+            // throw error
+            console.log("Please provide a string for the title")
+            return 
+        }
+
+        const description = formData.get('description');
+        if (typeof description != "string") {
+            // throw error
+            console.log("Please provide a string for the description")
+            return 
+        }
+
+        const frequency = Number(formData.get('frequency'));
+        let isPublic = false;
+
+        if (formData.get('isPublic') === 'public'){
+            isPublic = true;
+        } else if (formData.get('isPublic') === 'private') {
+            isPublic = false;
+        }
+
+        const body: Chore = {
+            title: title,
+            description: description,
             created_at: currDateTime,
             updated_at: currDateTime,
-            frequency: formData.get(frequency),
-            public: formData.get(isPublic)
-
+            frequency: frequency,
+            public: isPublic
         }
+
         const res = await fetch('api/chores', {
-            method: 'POST'
+            method: 'POST',
+            body: JSON.stringify(body),
+            headers: {
+                'Content-Type': 'application/json',
+            }
         });
 
-        setShowModal(false);
+        if (res.ok) {
+            setShowModal(false);
+        }
 
     }
 
 
 
 
-    const [showModal, setShowModal] = useState(false);
     return (
       <div>
         <button
@@ -70,9 +114,13 @@ export default function AddChoreModal() {
                       </label>
                       <input name="frequency" className="appearance-none border w-full py-2 px-1 text-black" />
                       <label className="block text-black text-sm mb-1">
-                        Public?
+                        Public or Private?
                       </label>
-                      <input name="isPublic" className="appearance-none border w-full py-2 px-1 text-black" />
+                      <select name="isPublic" id="isPublic">
+                          <option value="private">Private</option>
+                          <option value="public">Public</option>
+                      </select>
+                      {/* <input name="isPublic" className="appearance-none border w-full py-2 px-1 text-black" /> */}
                         <div className="flex items-center justify-end p-6 border-t border-solid border-blueGray-200 ">
                             <button
                             className="text-red-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1"
