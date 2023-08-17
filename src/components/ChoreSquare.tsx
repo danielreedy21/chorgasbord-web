@@ -1,4 +1,5 @@
 import DeleteChore from '../components/DeleteChore'
+import DidChore from '../components/DidChore'
 
 interface Props {
     title: string;
@@ -23,7 +24,10 @@ export default function ChoreSquare( props: Props) {
             <p>{createdAt}</p>
             <p>{updatedAt}</p>
             <p>{frequency}</p>
-            <DeleteChore title={title}></DeleteChore>
+            <div className="flex flex-col">
+                <DidChore title={title}></DidChore>
+                <DeleteChore title={title}></DeleteChore>
+            </div>
         </div>
     );
 }

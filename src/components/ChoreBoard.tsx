@@ -60,7 +60,7 @@ export default function ChoreBoard({userId, getPrivate}:Props) {
 
             <div className="mx-auto w-256 mt-12">
                 <div className="grid grid-cols-3 place-content-center gap-6">
-                    {data.map((chore) => {
+                    {/* {data.map((chore) => {
                         return (
                             <ChoreSquare 
                                 key={chore.title}
@@ -71,9 +71,9 @@ export default function ChoreBoard({userId, getPrivate}:Props) {
                                 frequency={chore.frequency}
                             ></ChoreSquare>
                         );
-                    })}
+                    })} */}
                     {/* <AddChoreSquare></AddChoreSquare> */}
-                    <Modal></Modal>
+                    {/* <Modal></Modal> */}
                 </div>
             </div>
         );

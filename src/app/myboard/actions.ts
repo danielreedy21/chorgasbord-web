@@ -23,3 +23,24 @@ export async function deleteChore(title: string) {
     revalidatePath('/myboard')
     
 }
+
+export async function didChore(title: string) {
+    const session = await getServerSession(authOptions);
+    const userId = session?.user.id;
+    const currTime = new Date()
+    if (!userId) {
+        return
+    }
+    const record = await prisma.chore.update({
+        where: {
+            userId_title: {
+                userId: userId,
+                title: title,
+            }
+        },
+        data: {
+            updated_at: currTime.toISOString()
+        }
+    })
+    revalidatePath('/myboard')
+}

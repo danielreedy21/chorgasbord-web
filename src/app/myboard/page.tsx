@@ -5,7 +5,6 @@ import { Metadata } from "next";
 import { authOptions } from '../api/auth/[...nextauth]/route'
 // import { GetServerSideProps } from 'next'
 import { prisma } from '../../lib/prisma'
-import AddChoreSquare from '../../components/AddChoreSquare'
 import ChoreSquare from '../../components/ChoreSquare'
 import AddChoreModal from '../../components/AddChoreModal'
 import type { InferGetServerSidePropsType, GetServerSideProps } from 'next'
