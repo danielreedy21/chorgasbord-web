@@ -1,9 +1,15 @@
+'use client'
+
 import ChoreSquare from './ChoreSquare'
 import AddChoreSquare from './AddChoreSquare'
 import AuthCheck from './AuthCheck'
+import Modal from './AddChoreModal'
+import {useState, useEffect} from 'react'
+import Spinner from './Spinner'
 
 interface Props {
-    user: string | null | undefined;
+    userId: string;
+    getPrivate: boolean;
 }
 
 
@@ -23,23 +29,54 @@ interface Props {
 //     return result
 // }
 
-export default function ChoreBoard({user}:Props) {
-    // console.log(getChores(user))
+export default function ChoreBoard({userId, getPrivate}:Props) {
+    const [data, setData] = useState(null)
+    const [isLoading, setLoading] = useState(true)
 
 
-    return (
-        <div className="grid grid-cols-4 gap-4 mx-4 place-content-center space-between">
-            <ChoreSquare></ChoreSquare>
-            <ChoreSquare></ChoreSquare>
-            <ChoreSquare></ChoreSquare>
-            <ChoreSquare></ChoreSquare>
-            <ChoreSquare></ChoreSquare>
-            <ChoreSquare></ChoreSquare>
-            <ChoreSquare></ChoreSquare>
-            <ChoreSquare></ChoreSquare>
-            {/* <AuthCheck> */}
-                <AddChoreSquare/>
-            {/* </AuthCheck> */}
-        </div>
-    );
+    useEffect(() => {
+        fetch('/api/chores', {
+            method: 'GET'
+        })
+            .then((res) => res.json())
+            .then((data) => {
+                setData(data)
+                setLoading(false)
+            })
+    }, [])
+
+    if (isLoading) {
+        return <Spinner></Spinner>
+    } 
+    if (!data) {
+        return <p>missing data</p>
+    }
+
+    if (data) {
+        console.log(data)
+
+        return (
+            // <div>data loaded</div>
+
+            <div className="mx-auto w-256 mt-12">
+                <div className="grid grid-cols-3 place-content-center gap-6">
+                    {data.map((chore) => {
+                        return (
+                            <ChoreSquare 
+                                key={chore.title}
+                                title={chore.title} 
+                                description={chore.description} 
+                                createdAt={chore.created_at}
+                                updatedAt={chore.updated_at}
+                                frequency={chore.frequency}
+                            ></ChoreSquare>
+                        );
+                    })}
+                    {/* <AddChoreSquare></AddChoreSquare> */}
+                    <Modal></Modal>
+                </div>
+            </div>
+        );
+    }
+
 }

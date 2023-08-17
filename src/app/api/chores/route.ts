@@ -53,20 +53,21 @@ export async function DELETE(req: NextRequest) {
     return NextResponse.json(record)
 }
 
-// export async function GET(request: Request) {
-//     const session = await getServerSession(authOptions)
-//     const data = await request.json()
+export async function GET(req: NextRequest) {
+    const session = await getServerSession(authOptions)
+
+    // if all flag is set to false
+    const userId = session?.user.id
+    // const getPrivate = req.nextUrl.searchParams.get('getPrivate')
+    if (!userId) {
+        return
+    }
 
 
-
-
-//     // if all flag is set to false
-//     const userId = data.userID
-
-//     const chores = await prisma.chore.findMany({
-//         where: {
-//             userId: userId,
-//         }
-//     })
-//     return NextResponse.json(chores)
-// }
+    const chores = await prisma.chore.findMany({
+        where: {
+            userId: userId,
+        }
+    })
+    return NextResponse.json(chores)
+}

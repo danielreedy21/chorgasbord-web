@@ -1,27 +1,39 @@
 'use client'
-import { useState } from 'react'
+import { useRouter } from 'next/navigation';
+import { useState, useTransition } from 'react';
+import { start } from 'repl';
+import { deleteChore } from '../app/myboard/actions'
 
 interface Props {
     title: string;
 }
 
 export default function DeleteChore({title}: Props) {
+    const router = useRouter();
     const [isFetching, setIsFetching] = useState(false);
+    const [isPending, startTransition] = useTransition();
+    const isMutating = isFetching || isPending;
 
-    const deleteChore = async () => {
 
-        setIsFetching(true);
 
-        const res = await fetch(`/api/chores?title=${title}`, {
-            method: 'DELETE',
-        });
+    // const deleteChore = async () => {
 
-        setIsFetching(false);
+    //     setIsFetching(true);
 
-        return res.json()
-    }
+    //     const res = await fetch(`/api/chores?title=${title}`, {
+    //         method: 'DELETE',
+    //     });
+
+    //     setIsFetching(false);
+
+    //     startTransition(()=> router.refresh())
+    //     // revalidatePath('/myboard');
+    //     // router.refresh()
+    // }
 
     return (
-        <button onClick={deleteChore}>Delete Chore</button>
+        <button onClick={() => startTransition(() => deleteChore(title))}>
+            {!isMutating ? 'Delete Chore': '...'}
+        </button>
     );
 }

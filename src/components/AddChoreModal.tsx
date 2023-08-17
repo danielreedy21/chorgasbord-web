@@ -1,4 +1,5 @@
 'use client'
+import {useRouter} from 'next/navigation';
 import { useState } from 'react'
 
 
@@ -14,6 +15,7 @@ interface Chore {
 
 export default function AddChoreModal() {
 
+    const router = useRouter();
     const [showModal, setShowModal] = useState(false);
 
     const createChore = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -66,6 +68,7 @@ export default function AddChoreModal() {
 
         if (res.ok) {
             setShowModal(false);
+            router.refresh()
         }
 
     }
