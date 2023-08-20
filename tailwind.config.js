@@ -15,6 +15,18 @@ module.exports = {
       width: {
         '128': '32rem',
         '256': '64rem'
+      },
+      colors: {
+        'gradient-0': '#039f00',
+        'gradient-1': '#449800',
+        'gradient-2': '#628f00',
+        'gradient-3': '#798600',
+        'gradient-4': '#8e7a00',
+        'gradient-5': '#a16e00',
+        'gradient-6': '#b15e00',
+        'gradient-7': '#c04c00',
+        'gradient-8': '#cc3400',
+        'gradient-9': '#d50000',
       }
     },
   },

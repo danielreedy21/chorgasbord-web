@@ -52,8 +52,8 @@ export default async function MyBoard() {
     })
 
     return (
-        <main className="my-20"> 
-            <h3 className="text-2xl ml-56">My Personal Chorgasbord</h3>
+        <main className="min-h-screen my-20"> 
+            {/* <h3 className="text-2xl ml-56">My Personal Chorgasbord</h3> */}
             {/* <p>User: {userId}</p> */}
             {/* <p>Chores: {JSON.stringify(chores)}</p> */}
             {/* <p>Length: {chores.length}</p> */}

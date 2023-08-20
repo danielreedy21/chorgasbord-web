@@ -32,7 +32,10 @@ export default function DeleteChore({title}: Props) {
     // }
 
     return (
-        <button onClick={() => startTransition(() => deleteChore(title))}>
+        <button 
+            onClick={() => startTransition(() => deleteChore(title))}
+            className="bg-red-700 w-[40%] h-16 rounded-md shadow-md invisible group-hover:visible"
+        >
             {!isMutating ? 'Delete Chore': '...'}
         </button>
     );

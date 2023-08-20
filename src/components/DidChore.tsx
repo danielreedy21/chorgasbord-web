@@ -12,7 +12,10 @@ export default function DidChore({title}: Props) {
 
 
     return (
-        <button onClick={() => startTransition(() => didChore(title))}>
+        <button 
+            onClick={() => startTransition(() => didChore(title))}
+            className="bg-gray-100 w-[40%] h-16 rounded-md shadow-md invisible group-hover:visible"
+        >
             {!isPending? 'Completed Chore': '...'}
         </button>
     )

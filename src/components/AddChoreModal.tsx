@@ -84,7 +84,7 @@ export default function AddChoreModal() {
       <div>
         <button
           className="bg-white text-black active:bg-gray-500 
-        px-6 py-3 hover:shadow-lg outline-none focus:outline-none mr-1 mb-1"
+        px-6 py-3 hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 rounded-md"
           type="button"
           onClick={() => setShowModal(true)}
         >

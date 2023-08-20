@@ -30,7 +30,7 @@ export default async function UserProfile({ params }: Props) {
     console.log(!!isFollowing)
 
     return (
-        <main className="mt-16 grid grid-flow-row place-content-center">
+        <main className="min-h-screen mt-16 grid grid-flow-row place-content-center">
             <h1 className="text-3xl">{name}</h1>
   
             <div className="relative w-24 h-24">
