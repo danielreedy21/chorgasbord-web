@@ -8,8 +8,9 @@ export const metadata: Metadata = {
 export default function About() {
     return (
         <main className="mt-16">
-            <h1>About Chorgasbord</h1>
-            <p>This is an application that lets users view and create timed chores and tasks</p>
+            <h1>Following:</h1>
+            <p>This section will showcase the users that you are following</p>
+            <p>The first followers you see are your favorited users</p>
         </main>
     );
 }

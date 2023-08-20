@@ -44,8 +44,7 @@ export default function AddChoreModal() {
         const weekSec = Number(formData.get('weeks'));
         const daySec = Number(formData.get('days'));
         const hourSec = Number(formData.get('hours'));
-        const minSec = Number(formData.get('minutes'));
-        const frequency = (weekSec*604800 + daySec*86400 + hourSec*3600 + minSec*60)*1;
+        const frequency = (weekSec*604800 + daySec*86400 + hourSec*3600)*1000;
         let isPublic = false;
 
         if (formData.get('isPublic') === 'public'){
@@ -137,6 +136,7 @@ export default function AddChoreModal() {
                                 </div>
                                 <p>Weeks</p>
                             </div>
+
                             <div className="w-16">
                                 <div className="flex flex-row">
                                     <input 
@@ -150,6 +150,7 @@ export default function AddChoreModal() {
                                 </div>
                                 <p>Days</p>
                             </div>
+
                             <div className="w-16">
                                 <div className="flex flex-row">
                                     <input 
@@ -159,20 +160,8 @@ export default function AddChoreModal() {
                                         min="0"
                                         className="flex-row w-full"
                                     />
-                                    <span>:</span>
                                 </div>
                                 <p>Hours</p>
-                            </div>
-                            <div className="w-16">
-                                <div className="flex flex-row">
-                                    <input 
-                                        type="number" 
-                                        name="minutes"
-                                        defaultValue={0} 
-                                        min="0"
-                                        className="flex-row w-full"/>
-                                </div>
-                                <p>Minutes</p>
                             </div>
                       </div>
 
@@ -201,6 +190,7 @@ export default function AddChoreModal() {
                             Submit
                             </button>
                         </div>
+
                     </form>
                   </div>
                 </div>
