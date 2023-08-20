@@ -40,7 +40,12 @@ export default function AddChoreModal() {
             return 
         }
 
-        const frequency = Number(formData.get('frequency'));
+        // grabbing frequency
+        const weekSec = Number(formData.get('weeks'));
+        const daySec = Number(formData.get('days'));
+        const hourSec = Number(formData.get('hours'));
+        const minSec = Number(formData.get('minutes'));
+        const frequency = (weekSec*604800 + daySec*86400 + hourSec*3600 + minSec*60)*1;
         let isPublic = false;
 
         if (formData.get('isPublic') === 'public'){
@@ -90,9 +95,9 @@ export default function AddChoreModal() {
           <>
             <div className="flex justify-center items-center overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">
               <div className="relative w-auto my-6 mx-auto max-w-3xl">
-                <div className="border-0 relative flex flex-col w-full bg-white outline-none focus:outline-none">
+                <div className="border-0 relative flex flex-col w-full bg-white outline-none focus:outline-none text-black">
                   <div className="flex items-start justify-between p-5 border-b border-solid border-gray-300 ">
-                    <h3 className="text-3xl">General Info</h3>
+                    <h3 className="text-3xl">Create Chore</h3>
                     <button
                       className="bg-transparent border-0 text-black float-right"
                       onClick={() => setShowModal(false)}
@@ -104,18 +109,74 @@ export default function AddChoreModal() {
                   </div>
                   <div className="relative p-6 flex-auto">
                     <form onSubmit={createChore} className="bg-gray-200 px-8 pt-6 pb-8 w-full">
+
                       <label className="block text-black text-sm mb-1">
                         Title
                       </label>
                       <input name="title" className="appearance-none border w-full py-2 px-1 text-black" />
+
                       <label className="block text-black text-sm mb-1">
                         Description
                       </label>
-                      <input name="description" className="appearance-none border w-full py-2 px-1 text-black" />
+                      <textarea name="description" className="appearance-none border w-full h-24 py-2 px-1 text-black" />
+
                       <label className="block text-black text-sm mb-1">
                         Frequency
                       </label>
-                      <input name="frequency" className="appearance-none border w-full py-2 px-1 text-black" />
+                      <div className="flex flex-row bg-gray py-2 px-1 text-black">
+                            <div className="w-16">
+                                <div className="flex flex-row">
+                                    <input 
+                                        type="number" 
+                                        name="weeks"
+                                        defaultValue={0} 
+                                        min="0"
+                                        className="flex-row w-full"
+                                    />
+                                    <span>:</span>
+                                </div>
+                                <p>Weeks</p>
+                            </div>
+                            <div className="w-16">
+                                <div className="flex flex-row">
+                                    <input 
+                                        type="number" 
+                                        name="days"
+                                        defaultValue={0} 
+                                        min="0"
+                                        className="flex-row w-full"
+                                    />
+                                    <span>:</span>
+                                </div>
+                                <p>Days</p>
+                            </div>
+                            <div className="w-16">
+                                <div className="flex flex-row">
+                                    <input 
+                                        type="number" 
+                                        name="hours"
+                                        defaultValue={0} 
+                                        min="0"
+                                        className="flex-row w-full"
+                                    />
+                                    <span>:</span>
+                                </div>
+                                <p>Hours</p>
+                            </div>
+                            <div className="w-16">
+                                <div className="flex flex-row">
+                                    <input 
+                                        type="number" 
+                                        name="minutes"
+                                        defaultValue={0} 
+                                        min="0"
+                                        className="flex-row w-full"/>
+                                </div>
+                                <p>Minutes</p>
+                            </div>
+                      </div>
+
+                      {/* <input name="frequency" className="appearance-none border w-full py-2 px-1 text-black" /> */}
                       <label className="block text-black text-sm mb-1">
                         Public or Private?
                       </label>
@@ -123,6 +184,7 @@ export default function AddChoreModal() {
                           <option value="private">Private</option>
                           <option value="public">Public</option>
                       </select>
+
                       {/* <input name="isPublic" className="appearance-none border w-full py-2 px-1 text-black" /> */}
                         <div className="flex items-center justify-end p-6 border-t border-solid border-blueGray-200 ">
                             <button

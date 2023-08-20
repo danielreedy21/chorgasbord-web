@@ -1,13 +1,10 @@
 import ChoreBoard from '../../components/ChoreBoard'
-// import { useSession } from 'next-auth/react'
 import { getServerSession } from 'next-auth'
 import { Metadata } from "next";
 import { authOptions } from '../api/auth/[...nextauth]/route'
-// import { GetServerSideProps } from 'next'
 import { prisma } from '../../lib/prisma'
 import ChoreSquare from '../../components/ChoreSquare'
 import AddChoreModal from '../../components/AddChoreModal'
-import type { InferGetServerSidePropsType, GetServerSideProps } from 'next'
 
 
 export const dynamic = 'force-dynamic';
@@ -48,10 +45,6 @@ export default async function MyBoard() {
         )
     }
 
-    // const res = await fetch('http://localhost:3000/api/chores', {
-    //     method: 'GET',
-    // });
-    // const data = res.json()
     const chores = await prisma.chore.findMany({
         where: {
             userId: userId
@@ -80,8 +73,6 @@ export default async function MyBoard() {
                     <AddChoreModal></AddChoreModal>
                 </div>
             </div>
-            {/* <ChoreBoard user={session?.user.id}></ChoreBoard> */}
-            {/* <ChoreBoard user="placehold user"></ChoreBoard> */}
             {/* <ChoreBoard userId={userId} getPrivate={true}></ChoreBoard> */}
         </main>
     );
