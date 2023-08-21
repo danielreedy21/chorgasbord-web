@@ -55,19 +55,23 @@ export default function ChoreSquare( props: Props) {
 
     return (
         <div
-            className= {getColor(percentLeft) + " text-black h-72 rounded-md shadow-lg group"}
+            className= {getColor(percentLeft) + " text-black h-32 md:h-72 rounded-md shadow-lg group relative overflow-hidden"}
         >
-            <h4 className="text-3xl">{title}</h4>
+            <h4 className="text-2xl">{title}</h4>
             <p>{description}</p>
             {/* <p>{createdAt}</p> */}
             {/* <p>{updatedAt}</p>
             <p>{frequency}</p> */}
             {/* <p>{sinceUpdate}</p> */}
-            <p>Percent: %{percentLeft}</p>
-            <div className="mt-32 flex flex-row justify-evenly content-end ">
+            <p className="hidden md:inline-block">Percent: %{percentLeft}</p>
+                {/* flex flex-row justify-evenly content-end  */}
+            {/* I need to change this to in the javascript so that rather than buttons becoming visible on hover, they become existent */}
+            {/* <div className="h-full relative md:mt-32"> */}
+            <div className="flex flex-row justify-evenly content-end">
                 <DidChore title={title}></DidChore>
                 <DeleteChore title={title}></DeleteChore>
             </div>
+            {/* </div> */}
         </div>
     );
 }

@@ -9,7 +9,7 @@ export default async function Users() {
 
     return(
         <main className="min-h-screen mt-16">
-            <h1 className="text-3xl">Users</h1>
+            <h1 className="text-3xl mb-3 px-2">Users</h1>
             <div className="grid grid-flow-col grid-cols-4 place-items-center">
                 {users.map((user) => {
                     return (

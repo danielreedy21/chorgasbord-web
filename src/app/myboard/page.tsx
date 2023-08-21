@@ -57,8 +57,14 @@ export default async function MyBoard() {
             {/* <p>User: {userId}</p> */}
             {/* <p>Chores: {JSON.stringify(chores)}</p> */}
             {/* <p>Length: {chores.length}</p> */}
-            <div className="mx-auto w-256">
-                <div className="grid grid-cols-3 place-content-center gap-6">
+            <div 
+                className="mx-auto w-72
+                            md:w-256"
+            >
+                <div 
+                    className="grid grid-cols-2 place-content-center gap-6
+                                md:grid-cols-3"
+                >
                     {chores.map((chore) => {
                         return (
                             <ChoreSquare 
