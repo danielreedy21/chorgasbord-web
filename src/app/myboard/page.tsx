@@ -67,8 +67,7 @@ export default async function MyBoard() {
                 >
                     {chores.map((chore) => {
                         return (
-                            <ChoreSquare 
-                                key={chore.title}
+                            <ChoreSquare key={chore.title}
                                 title={chore.title} 
                                 description={chore.description} 
                                 createdAt={chore.created_at}
