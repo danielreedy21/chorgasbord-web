@@ -59,11 +59,11 @@ export default async function MyBoard() {
             {/* <p>Length: {chores.length}</p> */}
             <div 
                 className="mx-auto w-72
-                            md:w-256"
+                            lg:w-256 md:w-128"
             >
                 <div 
                     className="grid grid-cols-2 place-content-center gap-6
-                                md:grid-cols-3"
+                                lg:grid-cols-3"
                 >
                     {chores.map((chore) => {
                         return (

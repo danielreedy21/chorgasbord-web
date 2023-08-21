@@ -55,7 +55,7 @@ export default function ChoreSquare( props: Props) {
 
     return (
         <div
-            className= {getColor(percentLeft) + " text-black h-32 md:h-72 rounded-md shadow-lg group relative overflow-hidden"}
+            className= {getColor(percentLeft) + " text-black h-32 md:h-56 lg:h-72 rounded-md shadow-lg group relative overflow-hidden"}
         >
             <h4 className="text-2xl">{title}</h4>
             <p>{description}</p>
