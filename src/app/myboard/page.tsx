@@ -32,14 +32,14 @@ export default async function MyBoard() {
     const userId = session?.user.id
     if (!session) {
         return (
-            <main className="mt-16">
+            <main className="mt-16 min-h-screen">
                 <h3> Please Log In to Use this Feature! </h3>
             </main>
         )
     }
     if (!userId || userId == 'undefined') {
         return (
-            <main className="mt-16">
+            <main className="mt-16 min-h-screen">
                 <h3>Issue with account.</h3>
             </main>
         )
@@ -68,6 +68,7 @@ export default async function MyBoard() {
                     {chores.map((chore) => {
                         return (
                             <ChoreSquare 
+                                key={chore.title}
                                 title={chore.title} 
                                 description={chore.description} 
                                 createdAt={chore.created_at}
