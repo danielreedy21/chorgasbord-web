@@ -6,7 +6,7 @@ import HamburgerMenu from "../components/HamburgerMenu";
 
 const Navbar = () => {
     return (
-        <nav className="bg-black fixed top-0 w-full h-12 border-b-2 border-white z-50">
+        <nav className="bg-black text-white fixed top-0 w-full h-12 border-b-2 border-white z-50">
             {/* desktop navbar */}
             <div className="w-full h-full items-center justify-between px-2
                             hidden lg:flex">
