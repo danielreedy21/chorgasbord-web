@@ -26,7 +26,7 @@ module.exports = {
         'gradient-6': '#b7d800',
         'gradient-7': '#cfe100',
         'gradient-8': '#e7ea00',
-        'gradient-9': '#fff20',
+        'gradient-9': '#fff200',
         'gradient-10': '#ffdc00',
         'gradient-11': '#ffc700',
         'gradient-12': '#feb100',

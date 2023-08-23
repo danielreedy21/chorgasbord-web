@@ -1,6 +1,7 @@
 import ChoreSquare from "../components/ChoreSquare"
 import AddChoreSquare from "../components/AddChoreSquare"
 import Link from 'next/link'
+import ChoreBoard from '../components/ChoreBoard'
 
 export default function Home() {
   return (
@@ -16,7 +17,9 @@ export default function Home() {
       </section>
       <p className="mx-12 mt-24">Hello, my name is Daniel and I am the creator of this application. Thank you for trying out Chorgasbord!</p>
       <p className="mx-12 mt-8">As an example, here is my Board. Am I doing well or slacking off?</p>
-      <h3 className="mt-10 mx-12 text-4xl">Daniel`&apos;`s Board</h3>
+      <h3 className="mt-10 mx-12 text-4xl my-4">{`Daniel\'s Board`}</h3>
+      {/* @ts-ignore */}
+      <ChoreBoard userId={'clkx1kqhz000060ymd6yuy0zj'}></ChoreBoard>
     </main>
   )
 }
