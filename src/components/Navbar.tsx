@@ -12,9 +12,9 @@ const Navbar = () => {
                             hidden lg:flex">
                 <Link className="text-3xl" href={'/'}>Chorgasbord</Link>
                 <ul className="flex space-x-4">
-                    <li><Link href={'/myboard'}> My Board </Link></li>
-                    <li><Link href={'/following'}> Following </Link></li>
-                    <li><Link href={'/users'}> Explore </Link></li>
+                    <li><Link href={'/myboard'} > My Board </Link></li>
+                    <li><Link href={'/following'} > Following </Link></li>
+                    <li><Link href={'/users'} > Explore </Link></li>
                 </ul>
                 <div className="w-fit flex space-x-2 my-1 mx-1">
                     <AuthCheck><SignOutButton/></AuthCheck>

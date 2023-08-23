@@ -5,6 +5,8 @@ import { authOptions } from '../api/auth/[...nextauth]/route'
 import { prisma } from '../../lib/prisma'
 import ChoreSquare from '../../components/ChoreSquare'
 import AddChoreModal from '../../components/AddChoreModal'
+import ScrollToTop from '../../components/ScrollToTop'
+
 
 
 export const dynamic = 'force-dynamic';
@@ -57,6 +59,7 @@ export default async function MyBoard() {
             {/* <p>User: {userId}</p> */}
             {/* <p>Chores: {JSON.stringify(chores)}</p> */}
             {/* <p>Length: {chores.length}</p> */}
+            <ScrollToTop></ScrollToTop>
             <div 
                 className="mx-auto w-72
                             lg:w-256 md:w-128"

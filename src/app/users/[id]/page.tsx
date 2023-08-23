@@ -4,6 +4,7 @@ import FollowButtonClient from '../../../components/FollowButtonClient'
 import ChoreBoard from '../../../components/ChoreBoard'
 import { getServerSession } from 'next-auth'
 import { authOptions } from '../../api/auth/[...nextauth]/route'
+import ScrollToTop from "../../../components/ScrollToTop"
 
 interface Props {
     params: {
@@ -33,7 +34,7 @@ export default async function UserProfile({ params }: Props) {
     return (
         <main className="min-h-screen mt-16 flex flex-col content-center w-72 mx-auto
                         lg:w-256 md:w-128">
-  
+            <ScrollToTop></ScrollToTop>
             <div className="flex flex-row justify-between w-full">
                 <div>
                     <div className="relative w-24 h-24">
