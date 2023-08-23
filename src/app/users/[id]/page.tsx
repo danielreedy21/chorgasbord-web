@@ -32,11 +32,12 @@ export default async function UserProfile({ params }: Props) {
     console.log(!!isFollowing)
 
     return (
-        <main className="min-h-screen mt-16 flex flex-col content-center w-72 mx-auto
+        <main className="min-h-screen mt-16 flex flex-col content-center w-72 mx-auto my-20
                         lg:w-256 md:w-128">
             <ScrollToTop></ScrollToTop>
             <div className="flex flex-row justify-between w-full">
                 <div>
+                    <h1 className="text-3xl mb-2">{name}</h1>
                     <div className="relative w-24 h-24">
                         <img
                             width={300}
@@ -45,7 +46,6 @@ export default async function UserProfile({ params }: Props) {
                             className="rounded-full border border-gray-400 shadow-sm"
                         />
                     </div>
-                    <h1 className="text-3xl">{name}</h1>
                 </div>
 
                 <FollowButtonClient targetUserId={params.id} isFollowing={!!isFollowing}></FollowButtonClient>
