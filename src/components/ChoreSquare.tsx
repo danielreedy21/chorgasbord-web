@@ -2,6 +2,7 @@ import DeleteChore from '../components/DeleteChore'
 import DidChore from '../components/DidChore'
 
 interface Props {
+    mutable: boolean;
     title: string;
     description: string;
     createdAt: string;
@@ -10,6 +11,7 @@ interface Props {
 }
 
 export default function ChoreSquare( props: Props) {
+    const mutable = props.mutable;
     const title = props.title;
     const description = props.description;
     const createdAt = props.createdAt;
@@ -67,10 +69,13 @@ export default function ChoreSquare( props: Props) {
                 {/* flex flex-row justify-evenly content-end  */}
             {/* I need to change this to in the javascript so that rather than buttons becoming visible on hover, they become existent */}
             {/* <div className="h-full relative md:mt-32"> */}
-            <div className="flex flex-row justify-evenly content-end">
-                <DidChore title={title}></DidChore>
-                <DeleteChore title={title}></DeleteChore>
-            </div>
+            {mutable ?
+                <div className="flex flex-row justify-evenly content-end">
+                    <DidChore title={title}></DidChore>
+                    <DeleteChore title={title}></DeleteChore>
+                </div>:
+                <div></div>
+            }
             {/* </div> */}
         </div>
     );

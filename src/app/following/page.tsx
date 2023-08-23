@@ -1,13 +1,14 @@
 import { Metadata } from "next";
 import { getServerSession } from 'next-auth'
 import { authOptions } from "../api/auth/[...nextauth]/route"
+import { prisma } from "../../lib/prisma"
 
 export const metadata: Metadata = {
     title: 'About Us',
     description: 'About Chorgusbord',
 }
 
-export default async function About() {
+export default async function Following() {
 
     const session = await getServerSession(authOptions)
     const userId = session?.user.id
@@ -25,6 +26,18 @@ export default async function About() {
             </main>
         )
     }
+    
+    // figure out how to write a query that grabs the 
+    // const following =
+
+
+
+
+    const users = await prisma.user.findMany({
+        where: {
+
+        }
+    });
 
     return (
         <main className="min-h-screen mt-16">

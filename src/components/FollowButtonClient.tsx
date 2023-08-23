@@ -72,13 +72,13 @@ export default function FollowButtonClient({targetUserId, isFollowing}: Props) {
 
     if (isFollowingAfter){
         return(
-            <button onClick={unfollow}>
+            <button onClick={unfollow} className="bg-white text-black rounded-md shadow-md self-center p-3">
                 {!isFetching ? 'Unfollow': '...'}
             </button>
         );
     } else {
         return(
-            <button onClick={follow}>
+            <button onClick={follow} className="bg-white text-black rounded-md shadow-md self-center p-3">
                 {!isFetching ? 'Follow': '...'}
             </button>
         );
