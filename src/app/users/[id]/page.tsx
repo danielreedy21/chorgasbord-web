@@ -63,7 +63,7 @@ export default async function UserProfile({ params }: Props) {
             <h3 className="text-2xl my-4">{name + "'" + "s Public Board"}</h3>
             
             
-            {/* @ts-expect-error Server Component */}
+            {/* @ts-ignore Server Component */}
             <ChoreBoard userId={targetUserId} ></ChoreBoard>
   
         </main>
