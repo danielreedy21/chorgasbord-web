@@ -29,7 +29,7 @@ export default async function UserProfile({ params }: Props) {
     const isFollowing = await prisma.follows.findFirst({
         where: { followerId: userId, followingId: targetUserId},
     });
-    console.log(!!isFollowing)
+    // console.log(!!isFollowing)
 
     return (
         <main className="min-h-screen mt-16 flex flex-col content-center w-72 mx-auto my-20

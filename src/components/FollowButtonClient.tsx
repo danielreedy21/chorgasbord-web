@@ -3,6 +3,7 @@
 import { authOptions } from "@/app/api/auth/[...nextauth]/route"
 import {useState, useTransition, useEffect} from "react"
 import {useSession} from "next-auth/react"
+import { revalidateFollowingPage } from "../app/following/actions"
 
 
 interface Props {
@@ -14,6 +15,8 @@ export default function FollowButtonClient({targetUserId, isFollowing}: Props) {
     const { data: session, status } = useSession()
     const [isFetching, setIsFetching] = useState(false)
     const [isFollowingAfter, setIsFollowingAfter] = useState(isFollowing)
+    const [isPending, startTransition] = useTransition();
+    const isMutating = isFetching || isPending;
 
 
 
@@ -73,13 +76,13 @@ export default function FollowButtonClient({targetUserId, isFollowing}: Props) {
     if (isFollowingAfter){
         return(
             <button onClick={unfollow} className="bg-white text-black rounded-md shadow-md self-center p-3">
-                {!isFetching ? 'Unfollow': '...'}
+                {!isMutating ? 'Unfollow': '...'}
             </button>
         );
     } else {
         return(
             <button onClick={follow} className="bg-white text-black rounded-md shadow-md self-center p-3">
-                {!isFetching ? 'Follow': '...'}
+                {!isMutating ? 'Follow': '...'}
             </button>
         );
     }
