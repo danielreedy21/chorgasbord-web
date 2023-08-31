@@ -63,8 +63,12 @@ export default async function UserProfile({ params }: Props) {
             <h3 className="text-2xl my-4">{name + "'" + "s Public Board"}</h3>
             
             
-            {/* @ts-ignore Server Component */}
-            <ChoreBoard userId={targetUserId} ></ChoreBoard>
+            {targetUserId=="clkx1kqhz000060ymd6yuy0zj" ? 
+                // @ts-ignore Server Component
+                <ChoreBoard userId={targetUserId} ></ChoreBoard>
+            :
+                <p>After user feedback, Public Boards (other than Daniel's) are currently under reconsideration.</p>
+            }
   
         </main>
     );

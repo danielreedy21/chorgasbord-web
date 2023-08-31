@@ -22,7 +22,7 @@ export default function ChoreSquare( props: Props) {
     // calculate percent until chore is due
     const timeNow = new Date().getTime();
     const sinceUpdate = timeNow - new Date(updatedAt).getTime();
-    const percentLeft = Number((((frequency - sinceUpdate) / frequency) * 100).toFixed(2));
+    const percentLeft = Number((((Number(frequency) - sinceUpdate) / Number(frequency)) * 100).toFixed(2));
 
 
     function getColor(percentLeft: number) {

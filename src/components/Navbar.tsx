@@ -6,7 +6,8 @@ import HamburgerMenu from "../components/HamburgerMenu";
 
 const Navbar = () => {
     return (
-        <nav className="bg-black text-white fixed top-0 w-full h-12 border-b-2 border-white z-50">
+        <nav className="bg-black text-white fixed top-0 w-full h-14 border-b-2 border-white z-50
+                        lg:h-12">
             {/* desktop navbar */}
             <div className="w-full h-full items-center justify-between px-2
                             hidden lg:flex">
@@ -22,9 +23,9 @@ const Navbar = () => {
                 </div>
             </div>
             {/* tablet/mobile navbar */}
-            <div className="w-full flex justify-between px-2
+            <div className="w-full h-full flex justify-between px-2 align-center 
                             lg:hidden">
-                <Link className="text-3xl" href={'/'}>Chorgasbord</Link>
+                <Link className="text-3xl h-1/2 flex content-center justify-center" href={'/'}>Chorgasbord</Link>
                 <HamburgerMenu></HamburgerMenu>
                 
 
