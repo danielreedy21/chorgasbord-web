@@ -69,7 +69,7 @@ export default async function UserProfile({ params }: Props) {
                 // @ts-ignore Server Component
                 <ChoreBoard userId={targetUserId} ></ChoreBoard>
             :
-                <p>After user feedback, Public Boards (other than Daniel's) are currently under reconsideration.</p>
+                <p>{"After user feedback, Public Boards (other than Daniel" + "'" + "s) are currently under reconsideration."}</p>
             }
   
         </main>
