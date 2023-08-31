@@ -24,10 +24,11 @@ export default async function UserProfile({ params }: Props) {
     const user = await prisma.user.findUnique({ where: { id: params.id } });
     const { name, bio, image, id } = user ?? {};
     const targetUserId = id;
-    if (!targetUserId || ! userId) {
+    if (!targetUserId) {
         return <></>
     }
-    const isFollowing = await prisma.follows.findFirst({
+    
+    const isFollowing = (!userId) ? false : await prisma.follows.findFirst({
         where: { followerId: userId, followingId: targetUserId},
     });
     // console.log(!!isFollowing)
@@ -50,7 +51,9 @@ export default async function UserProfile({ params }: Props) {
                     </div>
                 </div>
 
-                <FollowButtonClient targetUserId={params.id} isFollowing={!!isFollowing}></FollowButtonClient>
+                {(!userId || userId==targetUserId) ? <></> :
+                    <FollowButtonClient targetUserId={params.id} isFollowing={!!isFollowing}></FollowButtonClient>
+                }
             </div>
   
             {bio ? 
