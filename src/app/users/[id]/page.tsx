@@ -5,6 +5,7 @@ import ChoreBoard from '../../../components/ChoreBoard'
 import { getServerSession } from 'next-auth'
 import { authOptions } from '../../api/auth/[...nextauth]/route'
 import ScrollToTop from "../../../components/ScrollToTop"
+import Image from "next/image"
 
 interface Props {
     params: {
@@ -39,8 +40,9 @@ export default async function UserProfile({ params }: Props) {
                 <div>
                     <h1 className="text-3xl mb-2">{name}</h1>
                     <div className="relative w-24 h-24">
-                        <img
+                        <Image
                             width={300}
+                            height={300}
                             src={image ?? '/profile-icon.jpeg'}
                             alt={`${name}'s profile`}
                             className="rounded-full border border-gray-400 shadow-sm"

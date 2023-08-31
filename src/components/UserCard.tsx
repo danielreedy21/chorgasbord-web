@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import FollowButtonClient from '../components/FollowButtonClient'
+import Image from "next/image"
 
 interface Props {
     id: string;
@@ -14,7 +15,9 @@ export default function UserCard({id, name, age, image}: Props) {
     return (
         <div> 
             <div className="relative w-16 h-16">
-                <img 
+                <Image
+                    width={300}
+                    height={300}
                     src={image ?? '/profile-icon'} 
                     alt={altMesg}
                     className="rounded-full border border-gray-400 shadow-sm"
