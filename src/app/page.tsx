@@ -12,7 +12,7 @@ export default function Home() {
         >Welcome to Chorgusbord!</h1>
         <h3 className="text-2xl my-6
                       lg:text-3xl"
-        >Keep track of and share cyclical tasks!</h3>
+        >Keep track of and share repeated tasks!</h3>
         <Link href="/myboard" className="text-black text-xl bg-gray-200 w-fit h-fit p-3 text-center rounded-lg mt-24">Go to your board!</Link>
         <Link href="/users/clkx1kqhz000060ymd6yuy0zj" className="text-black text-xl bg-gray-200 w-fit h-fit p-3 text-center rounded-lg mt-8">View an example board!</Link>
       </section>

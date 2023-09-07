@@ -50,6 +50,9 @@ export default async function MyBoard() {
     const chores = await prisma.chore.findMany({
         where: {
             userId: userId
+        },
+        orderBy: {
+            updated_at: 'desc'
         }
     })
 
