@@ -35,7 +35,7 @@ export default function DeleteChore({title}: Props) {
         <button 
             onClick={() => startTransition(() => deleteChore(title))}
             className="bg-red-700 w-[40%] min-h-8 rounded-md shadow-md absolute bottom-1 right-1
-                    lg:hidden lg:group-hover:inline-block"
+                    lg:hidden lg:group-hover:inline-block lg:h-14"
         >
             {!isMutating ? 'X': '...'}
         </button>

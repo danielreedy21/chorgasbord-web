@@ -15,7 +15,7 @@ export default function DidChore({title}: Props) {
         <button 
             onClick={() => startTransition(() => didChore(title))}
             className="bg-gray-100 w-[40%] min-h-8 rounded-md shadow-md absolute bottom-1 left-1
-                    lg:hidden lg:group-hover:block"
+                    lg:hidden lg:group-hover:block lg:h-14"
         >
             {!isPending? 'Y': '...'}
         </button>
