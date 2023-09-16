@@ -63,11 +63,11 @@ export default async function MyBoard() {
             {/* <p>Chores: {JSON.stringify(chores)}</p> */}
             {/* <p>Length: {chores.length}</p> */}
             <ScrollToTop></ScrollToTop>
+            {/* <button className="w-32 bg-white text-black rounded-md mb-4 absolute left-12 top-24">Make Profile Private?</button> */}
             <div 
                 className="mx-auto w-72
                             lg:w-256 md:w-128"
             >
-                <button className="w-24 bg-white text-black rounded-md mb-4">Make Profile Private?</button>
                 <div 
                     className="grid grid-cols-2 place-content-center gap-6
                                 lg:grid-cols-3"
